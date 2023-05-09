@@ -33,7 +33,13 @@ h4 {
 }
 
 .WebsiteFooter {
-  text-align: center;
+  text-align: right;
   border-top: solid 1px lightgray;
   color: lightgray;
+}
+
+@media screen and (max-width: 550px) {
+  .WebsiteFooter {
+    text-align: center;
+  }
 }
