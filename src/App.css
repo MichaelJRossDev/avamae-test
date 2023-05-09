@@ -1,3 +1,39 @@
 body {
   background-color: white;
+  color: grey;
+}
+
+h1 {
+  padding: 0 calc((100vw - 1000px) / 2);
+  margin-left: 2rem;
+  margin-top: 4rem;
+  font-size: large;
+}
+
+b {
+  padding: 0.2rem calc((100vw - 1000px) / 2);
+  margin: 2rem;
+}
+
+p {
+  padding: 0.2rem calc((100vw - 1000px) / 2);
+  margin: 2rem;
+  font-size: small;
+}
+
+ul {
+  padding: 0.2rem calc((100vw - 1000px) / 2);
+  margin: 2rem;
+  font-size: small;
+}
+
+h4 {
+  padding: 0 calc((100vw - 1000px) / 2);
+  margin-left: 2rem;
+}
+
+.WebsiteFooter {
+  text-align: center;
+  border-top: solid 1px lightgray;
+  color: lightgray;
 }

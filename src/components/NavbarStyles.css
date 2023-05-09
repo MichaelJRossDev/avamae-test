@@ -6,10 +6,14 @@ nav {
     border-bottom: solid 1px lightgray;
 }
 
+.Logo {
+    margin-left: 2rem;
+}
+
 .Navlinks {
     display: flex;
     list-style: none;
-    padding: 0.2rem calc((100vw - 1000px) / 2);
+    padding: 0 calc((100vw - 1000px) / 2);
     position: relative;
     align-items: center;;
 }
@@ -34,9 +38,13 @@ img {
     .Navlinks {
         display: none;
     }
+
     nav {
         justify-content: center;
-        padding-top: 1rem;
-        padding-bottom: 1rem;
+        padding: 1rem;
+    }
+
+    .Logo {
+        margin: 0;
     }
 }

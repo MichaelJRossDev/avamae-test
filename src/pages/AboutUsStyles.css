@@ -1,0 +1,13 @@
+.AboutUsImage {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    object-fit: contain;
+    width: 40%;
+}
+
+@media screen and (max-width: 550px) {
+    .AboutUsImage {
+        width: 90%;
+    }
+}

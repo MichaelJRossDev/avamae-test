@@ -6,17 +6,13 @@ function Navbar() {
     return (
         <>
             <nav>
-                <a>
-                    <img src={logo} alt='logo'/>
-                </a>
-                <div>
-                    <ul className='Navlinks'>
-                        <li><Link to={'/'}>Home</Link></li>
-                        <li><Link to={'/about-us'}>About Us</Link></li>
-                        <li><Link to={'/contact-us'}>Contact Us</Link></li>
-                        <li><label className='LogIn'>Log In</label></li>
-                    </ul>
-                </div>
+                <Link className='Logo' to={'/'}><img src={logo} alt='logo'/></Link>
+                <ul className='Navlinks'>
+                    <li><Link to={'/'}>Home</Link></li>
+                    <li><Link to={'/about-us'}>About Us</Link></li>
+                    <li><Link to={'/contact-us'}>Contact Us</Link></li>
+                    <li><label className='LogIn'>Log In</label></li>
+                </ul>
             </nav>
         </>
     )

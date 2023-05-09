@@ -15,6 +15,7 @@ function App() {
         <Route path='/about-us' element={<AboutUs />}/>
         <Route path='/contact-us' element={<ContactUs />}/>
       </Routes>
+      <p className='WebsiteFooter'>{'Website Development not by AVAMAE (yet)'}</p>
     </div>
   );
 }
