@@ -1,0 +1,42 @@
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    border-bottom: solid 1px lightgray;
+}
+
+.Navlinks {
+    display: flex;
+    list-style: none;
+    padding: 0.2rem calc((100vw - 1000px) / 2);
+    position: relative;
+    align-items: center;;
+}
+
+.Navlinks li {
+    padding-left: 1rem;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+img {
+    padding: 0 calc((100vw - 1000px) / 2);
+    width: 12rem;
+}
+
+.LogIn {
+    background-color: #EFF7FF;
+    color: #4789BF;
+}
+
+@media screen and (max-width: 550px) {
+    .Navlinks {
+        display: none;
+    }
+    nav {
+        justify-content: center;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+}
