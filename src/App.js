@@ -7,8 +7,10 @@ import AboutUs from './pages/AboutUs';
 import ContactUs from './pages/ContactUs';
 
 function App() {
+
   return (
     <div className="App">
+      <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.css"></link>
       <Navbar />
       <Routes>
         <Route path='/' element={<Home />}/>

@@ -1,8 +1,8 @@
+import HomeSwiper from "../components/HomeSwiper";
+
 function Home() {
     return (
-        <>
-            <h1>Home</h1>
-        </>
+            <HomeSwiper />
     )
 }
 

@@ -1,0 +1,21 @@
+.swiper-container {
+    height: 30rem;
+}
+
+.BannerText {
+    color: white;
+}
+
+.BannerImage {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0 0;
+}
+
+.Slide {
+    background-size:cover;
+    background-position: right;
+    background-position: top;
+    height: 100%;
+}
