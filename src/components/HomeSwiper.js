@@ -8,6 +8,7 @@ import 'swiper/css/bundle';
 
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function HomeSwiper() {
     const [swiperContent, setSwiperContent] = useState([{Title: 'Loading...', Subtitle: 'Loading...', ImageUrl: 'https://m.media-amazon.com/images/I/61XTd8EsYqL._AC_SX466_.jpg'}]);
@@ -34,8 +35,13 @@ function HomeSwiper() {
             {swiperContent.map(slide => {
                 return (
                 <SwiperSlide className='Slide' style={{ backgroundImage: `linear-gradient(to left, rgba(245, 246, 252, 0), rgb(41, 40, 39)), url(${slide.ImageUrl})`}}>
-                        <h1 className='BannerText'>{slide.Title}</h1>
-                        <p className='BannerText'>{slide.Subtitle}</p>
+                        <div className='BannerContent'>
+                          <h1 className='BannerText'>{slide.Title}</h1>
+                          <p className='BannerText'>{slide.Subtitle}</p>
+                          <Link to='/contact-us' className="ButtonContainer">
+                          <button>Contact us</button>
+                          </Link>
+                        </div>
                 </SwiperSlide>
                 )
             })}
