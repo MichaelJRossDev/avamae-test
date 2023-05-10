@@ -1,0 +1,7 @@
+.ContactUsContainer {
+    display: flex;
+}
+
+.ContactUsContainer > * {
+    flex-basis: 100%;
+}
