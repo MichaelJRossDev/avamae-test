@@ -15,8 +15,7 @@
 
 .Slide {
     background-size:cover;
-    background-position: right;
-    background-position: top;
+    background-position: top left;
     height: 100%;
 }
 
