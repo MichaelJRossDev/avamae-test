@@ -1,0 +1,41 @@
+button {
+    width: 7rem;
+    height: 2.5rem;
+    background-color: #2F7BB8;
+    color: white;
+    border: none;
+    border-radius: 0.4rem;
+    box-sizing: border-box;
+}
+
+.ButtonContainer {
+    padding: 0 calc((100vw - 1000px) / 2);
+    margin-left: 2rem;
+}
+
+.ContentContainer1 {
+    display: flex;
+    padding: 0 calc((100vw - 1000px) / 2);
+}
+
+.ContentContainer1 > * {
+    flex-basis: 100%;
+}
+
+.ContainerSplit * {
+    padding: 0;
+}
+
+.ContainerSplit img {
+    display: block;
+    margin-top: 3rem;
+    margin-left: auto;
+    margin-right: auto;
+    width: 75%;
+}
+
+@media screen and (max-width: 550px) {
+    .ContentContainer1 {
+        display: block;
+    }
+}
