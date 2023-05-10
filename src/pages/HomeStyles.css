@@ -38,4 +38,8 @@ button {
     .ContentContainer1 {
         display: block;
     }
+
+    button {
+        width: 85%;
+    }
 }
