@@ -43,3 +43,44 @@ button {
         width: 85%;
     }
 }
+
+.PictureOfGirl {
+    position: relative;
+}
+
+.PictureOfGirl img {
+    padding: 0 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 2rem;
+    width: 100%;
+    object-fit: cover;
+    object-position: top;
+    height: 30rem;
+}
+
+.TextBlock {
+    position: absolute;
+    top: 6rem;
+    height: 22rem;
+    left: calc((100vw - 1000px) / 2 + 2rem);
+    width: 34rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border-radius: 0.3rem;
+    text-align: left;
+}
+
+.TextBlock > * {
+    padding: 0;
+    margin-top: 2rem;
+    margin-left: 2rem;
+}
+
+.TextBlock button {
+    background-color: #EFF7FF;
+    color: #4D8CC0;
+}
+
+@media screen and (max-width: 970px) {
+}

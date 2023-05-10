@@ -22,3 +22,9 @@
 .BannerContent {
     margin-top: 10%;
 }
+
+@media screen and (max-width: 970px) {
+    .Slide {
+        background-position: center center;
+    }
+}

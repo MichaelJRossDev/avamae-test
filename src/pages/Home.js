@@ -1,6 +1,7 @@
 import HomeSwiper from "../components/HomeSwiper";
 import './HomeStyles.css';
-import image from '../Resources/shutterstock_696636415.jpg'
+import image1 from '../Resources/shutterstock_696636415.jpg'
+import image2 from '../Resources/shutterstock_1302552622.jpg'
 import { Link } from "react-router-dom";
 
 function Home() {
@@ -23,7 +24,15 @@ function Home() {
                     </Link>
                 </div>
                 <div className="ContainerSplit">
-                    <img src={image}/>
+                    <img src={image1}/>
+                </div>
+            </div>
+            <div className="PictureOfGirl">
+                <img src={image2}/>
+                <div className="TextBlock">
+                    <h1>Yr bitters normcore pug, hammock air plant</h1>
+                    <p>Williamsburg raclette distillery, chia literally semiotics echo park intelligentsia hoodie gatekeep 90's ethical biodiesel. Church-key JOMO brunch portland direct trade, grailed copper mug coloring book cold-pressed twee. Lyft jean shorts ascot, mustache health goth mlkshk gorpcore cold-pressed fashion axe salvia chia stumptown. Organic aesthetic live-edge yes plz hell of.</p>
+                    <button>Log in</button>
                 </div>
             </div>
         </>
