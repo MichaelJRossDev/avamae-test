@@ -32,10 +32,17 @@ h4 {
   margin-left: 2rem;
 }
 
+Navbar {
+  z-index: 2;
+}
+
 .WebsiteFooter {
+  z-index: 2;
   text-align: right;
   border-top: solid 1px lightgray;
   color: lightgray;
+  background-color: white;
+  height: 80vh;
 }
 
 @media screen and (max-width: 550px) {
