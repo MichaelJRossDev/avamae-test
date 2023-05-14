@@ -35,6 +35,27 @@ input {
     display: none;
 }
 
+.SubmittedMessage {
+    text-align: center;
+    vertical-align: middle;
+    background-color: #E9F4DA;
+    width: 34rem;
+    height: 10rem;
+    margin-left: calc((100vw - 1000px) / 2);
+}
+
+.SubmittedMessage p {
+    margin: 0;
+    margin-left: 2rem;
+    padding: 0;
+}
+
+.SubmittedMessage h1 {
+    margin: 0;
+    margin-left: 2rem;
+    padding: 0;
+}
+
 @media screen and (max-width: 550px) {
     .NameAndEmail {
         display: flex;

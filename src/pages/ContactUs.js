@@ -1,8 +1,9 @@
 import contactUsImage from "../Resources/Img_Contact.png"
 import "./ContactUsStyles.css"
 import { useState } from "react";
-import {Formik, Form, Field, ErrorMessage} from 'formik';
+import {Formik, Form, Field, FieldArray, ErrorMessage} from 'formik';
 import * as Yup from 'yup';
+import axios from "axios";
 
 const validationSchema = Yup.object({
     fullName: Yup.string()
@@ -10,8 +11,8 @@ const validationSchema = Yup.object({
     email: Yup.string()
         .email('Invalid email')
         .required('Required'),
-    phoneNumber: Yup.string()
-        .matches(/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/, 'Invalid Phone Number'),
+    phoneNumbers: Yup.array().of(Yup.string()
+        .matches(/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/, 'Invalid Phone Number')),
     message: Yup.string()
         .required('Required'),
     address1: Yup.string(),
@@ -22,12 +23,32 @@ const validationSchema = Yup.object({
     country: Yup.string()
 })
 
-const onSubmit = values => {
-    console.log(values)
-}
-
 function ContactUs() {
     const [showAddress, setShowAddress] = useState(false);
+    const [submitted, setSubmitted] = useState(false);
+    const [postError, setPostError] = useState(false);
+
+    const onSubmit = values => {
+        axios.post('https://interview-assessment.api.avamae.co.uk/index.html/api/v1/contact-us/submit', {
+            FullName: values.fullName,
+            EmailAddress: values.email,
+            PhoneNumbers: values.phoneNumbers,
+            Message: values.message,
+            bIncludeAddressDetails: showAddress,
+            AddressDetails: {
+                AddressLine1: values.address1,
+                AddressLine2: values.address2,
+                CityTown: values.city,
+                StateCounty: values.state,
+                Postcode: values.postcode,
+                Country: values.country
+            }
+        })
+            .then(() => {
+                setSubmitted(true)
+                setPostError(false)})
+            .catch(() => setPostError(true))
+    }
 
     function toggleAddress() {
         setShowAddress(!showAddress);
@@ -37,78 +58,106 @@ function ContactUs() {
         <>
             <div className="ContactUsContainer">
                     <h1>Contact us</h1>
-                    <p>Air plant squid cronut, fingerstache biodiesel pabst mukbang neutral milk hotel meh bruh actually tofu. Lumbersexual four dollar toast sus post-ironic</p>
-                    <Formik
-                    initialValues={{fullName: '', email: '', phoneNumber: '', message: '', address1: '', address2: '', city: '', postcode: '', country: ''}}
-                    validationSchema={validationSchema}
-                    onSubmit={onSubmit}>
-                        <Form>
-                            <div className="NameAndEmail">
-                                <div>
-                                    <label>Full Name </label>
-                                    <br/>
-                                    <Field name='fullName'/>
-                                    <ErrorMessage name='fullName' />
-                                    <br/>
+                    <p><strong>Air plant squid cronut, fingerstache biodiesel pabst mukbang neutral milk hotel meh bruh actually tofu. Lumbersexual four dollar toast sus post-ironic</strong></p>
+                    <div className={submitted ? 'hidden' : ''}>
+                        <Formik
+                        initialValues={{fullName: '', email: '', phoneNumbers: [''], message: '', address1: '', address2: '', city: '', postcode: '', country: ''}}
+                        validationSchema={validationSchema}
+                        onSubmit={onSubmit}>
+                            <Form>
+                                <div className="NameAndEmail">
+                                    <div>
+                                        <label>Full Name </label>
+                                        <br/>
+                                        <Field name='fullName'/>
+                                        <ErrorMessage name='fullName' />
+                                        <br/>
+                                    </div>
+                                    <div>
+                                        <label>Email address </label>
+                                        <br/>
+                                        <Field name='email'/>
+                                        <ErrorMessage name='email' />
+                                        <br/>
+                                    </div>
                                 </div>
-                                <div>
-                                    <label>Email address </label>
+                                <FieldArray name='phoneNumbers'>
+                                    {
+                                        (fieldArrayProps) => {
+                                            const { push, form } = fieldArrayProps;
+                                            const { values } = form;
+                                            const { phoneNumbers } = values;
+                                            return (
+                                                <>
+                                                    {
+                                                    phoneNumbers.map((phoneNumber, index) => (
+                                                        <>
+                                                            <label>{`Phone number ${'0' + (index + 1)} - optional`}</label>
+                                                            <br/>
+                                                            <Field name={`phoneNumbers[${index}]`}/>
+                                                            <ErrorMessage name={`phoneNumbers[${index}]`} />
+                                                            <br/>
+                                                        </>
+                                                    ))
+                                                    }
+                                                    <button type="button" onClick={() => push('')}>Add new phone number</button>
+                                                    <br/>
+                                                </>
+                                            )
+                                        }
+                                    }
+                                </FieldArray>
+                                <br/>
+                                <label>Message </label>
+                                <br/>
+                                <Field name='message'/>
+                                <ErrorMessage name='message' />
+                                <br/>
+                                <input type="checkbox" onChange={toggleAddress} />
+                                <label>Add address details</label>
+                                <div className={showAddress ? "" : "hidden"}>
+                                    <label>Address line 1 </label>
                                     <br/>
-                                    <Field name='email'/>
-                                    <ErrorMessage name='email' />
+                                    <Field name='address1'/>
+                                    <ErrorMessage name='address1'/>
                                     <br/>
+                                    <label>Address line 2 </label>
+                                    <br/>
+                                    <Field name='address2'/>
+                                    <ErrorMessage name='address2'/>
+                                    <br/>
+                                    <label>City/Town </label>
+                                    <br/>
+                                    <Field name='city'/>
+                                    <ErrorMessage name='city'/>
+                                    <br/>
+                                    <label>State/County </label>
+                                    <br/>
+                                    <Field name='state'/>
+                                    <ErrorMessage name='state'/>
+                                    <br/>
+                                    <label>Postcode </label>
+                                    <br/>
+                                    <Field name='postcode'/>
+                                    <ErrorMessage name='postcode'/>
+                                    <br/>
+                                    <label>Country </label>
+                                    <br/>
+                                    <Field name='country'/>
+                                    <ErrorMessage name='country'/>
                                 </div>
-                            </div>
-                            <label>Phone Number (optional)</label>
-                            <br/>
-                            <Field name='phoneNumber'/>
-                            <ErrorMessage name='phoneNumber' />
-                            <br/>
-                            <label>Message </label>
-                            <br/>
-                            <Field name='message'/>
-                            <ErrorMessage name='message' />
-                            <br/>
-                            <input type="checkbox" onChange={toggleAddress} />
-                            <label>Add address details</label>
-                            <div className={showAddress ? "" : "hidden"}>
-                                <p>Address stuff</p>
-                                <label>Address line 1 </label>
                                 <br/>
-                                <Field name='address1'/>
-                                <ErrorMessage name='address1'/>
+                                <button type="submit">Submit</button>
                                 <br/>
-                                <label>Address line 2 </label>
-                                <br/>
-                                <Field name='address2'/>
-                                <ErrorMessage name='address2'/>
-                                <br/>
-                                <label>City/Town </label>
-                                <br/>
-                                <Field name='city'/>
-                                <ErrorMessage name='city'/>
-                                <br/>
-                                <label>State/County </label>
-                                <br/>
-                                <Field name='state'/>
-                                <ErrorMessage name='state'/>
-                                <br/>
-                                <label>Postcode </label>
-                                <br/>
-                                <Field name='postcode'/>
-                                <ErrorMessage name='postcode'/>
-                                <br/>
-                                <label>Country </label>
-                                <br/>
-                                <Field name='country'/>
-                                <ErrorMessage name='country'/>
-                            </div>
-                            <br/>
-                            <button type="submit">Submit</button>
-                            
-                        </Form>
-
-                    </Formik>
+                                {postError ? <p>There has been an error with our servers. Please try again later.</p> : null}
+                            </Form>
+                        </Formik>
+                    </div>
+                    <div className={submitted ? 'SubmittedMessage' : 'hidden'}>
+                        <p>✅</p>
+                        <h1>Your message has been sent</h1>
+                        <p>We will be in contact with you within 24 hours</p>
+                    </div>
             </div>
             <img className="ContactUsImage" src={contactUsImage}/>
         </>
