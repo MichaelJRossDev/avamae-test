@@ -11,7 +11,7 @@ function Navbar() {
                     <li><Link to={'/'}>Home</Link></li>
                     <li><Link to={'/about-us'}>About Us</Link></li>
                     <li><Link to={'/contact-us'}>Contact Us</Link></li>
-                    <li><label className='LogIn'>Log In</label></li>
+                    <li><label className='LogIn'><button><strong>Log In</strong></button></label></li>
                 </ul>
             </nav>
         </>

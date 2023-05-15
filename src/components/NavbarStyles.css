@@ -24,14 +24,22 @@ nav {
     white-space: nowrap;
 }
 
+.Navlinks li * {
+    text-decoration: none;
+    color: #5D5D5D;
+}
+
 img {
     padding: 0 calc((100vw - 1000px) / 2);
     width: 12rem;
 }
 
-.LogIn {
+.LogIn button {
     background-color: #EFF7FF;
-    color: #4789BF;
+}
+
+.LogIn button strong {
+    color: #4A8BC1;
 }
 
 @media screen and (max-width: 550px) {
