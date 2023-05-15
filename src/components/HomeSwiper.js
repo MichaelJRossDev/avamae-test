@@ -6,12 +6,14 @@ import './HomeSwiperStyles.css';
 import 'swiper/css';
 import 'swiper/css/bundle';
 
+import loadingImage from '../Resources/Loading_icon.gif'
+
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 function HomeSwiper() {
-    const [swiperContent, setSwiperContent] = useState([{Title: 'Loading...', Subtitle: 'Loading...', ImageUrl: 'https://m.media-amazon.com/images/I/61XTd8EsYqL._AC_SX466_.jpg'}]);
+    const [swiperContent, setSwiperContent] = useState([{Title: 'Loading...', Subtitle: 'Loading...', ImageUrl: loadingImage}]);
 
     function fetchBannerData() {
       axios.get('https://interview-assessment.api.avamae.co.uk/api/v1/home/banner-details')
@@ -34,7 +36,7 @@ function HomeSwiper() {
             loop>
             {swiperContent.map(slide => {
                 return (
-                <SwiperSlide className='Slide' style={{ backgroundImage: `linear-gradient(to left, rgba(245, 246, 252, 0), rgb(41, 40, 39)), url(${slide.ImageUrl})`}}>
+                <SwiperSlide className={'Slide'} style={{ backgroundImage: `linear-gradient(to left, rgba(245, 246, 252, 0), rgb(41, 40, 39)), url(${slide.ImageUrl})`}}>
                         <div className='BannerContent'>
                           <h1 className='BannerText'>{slide.Title}</h1>
                           <p className='BannerText'>{slide.Subtitle}</p>

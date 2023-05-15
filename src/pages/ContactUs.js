@@ -59,7 +59,7 @@ function ContactUs() {
             <div className="ContactUsContainer">
                     <h1>Contact us</h1>
                     <p><strong>Air plant squid cronut, fingerstache biodiesel pabst mukbang neutral milk hotel meh bruh actually tofu. Lumbersexual four dollar toast sus post-ironic</strong></p>
-                    <div className={submitted ? 'hidden' : ''}>
+                    <div className={submitted ? 'hidden' : 'ContactUsContainer2'}>
                         <Formik
                         initialValues={{fullName: '', email: '', phoneNumbers: [''], message: '', address1: '', address2: '', city: '', postcode: '', country: ''}}
                         validationSchema={validationSchema}

@@ -96,6 +96,10 @@ button {
     margin-left: 1rem;
 }
 
+.ContainerSplit {
+    text-align: left;
+}
+
 
 @media screen and (max-width: 970px) {
     .TextBlock {

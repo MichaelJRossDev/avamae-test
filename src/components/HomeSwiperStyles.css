@@ -28,3 +28,12 @@
         background-position: center center;
     }
 }
+
+@media screen and (max-width: 550px) {
+    .swiper-button-prev, .swiper-button-next {
+        display: none !important;
+    }
+    .BannerContent {
+        margin-top: 9rem;
+    }
+}

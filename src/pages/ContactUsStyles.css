@@ -35,7 +35,7 @@ input[type=text] {
 }
 
 .NewNumberButton {
-    width: 30.5rem;
+    width: 30rem;
     background-color: #EFF7FF;
     color: #4185BD;
 }
@@ -112,9 +112,29 @@ input {
     width: 30rem;
 }
 
+@media screen and (max-width: 1300px) {
+    .ContactUsImage {
+        display: none;
+    }
+    .NameAndEmail * {
+        display: block;
+        width: 30rem;
+        overflow: visible;
+    }
+}
 
 @media screen and (max-width: 550px) {
-    .NameAndEmail {
+    .ContactUsContainer {
+        width: 100%;
+    }
+    .ContactUsContainer2 {
+        margin: 0;
         display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .ContactUsContainer > * {
+        flex-basis: 1;
     }
 }
