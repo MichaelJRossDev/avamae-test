@@ -36,7 +36,7 @@ button {
 
 @media screen and (max-width: 550px) {
     .ContentContainer1 {
-        display: block;
+        flex-direction: column-reverse;
     }
 
     button {
@@ -61,14 +61,15 @@ button {
 
 .TextBlock {
     position: absolute;
-    top: 6rem;
-    height: 22rem;
+    top: 5rem;
+    height: fit-content;
     left: calc((100vw - 1000px) / 2 + 2rem);
     width: 34rem;
     background-color: rgba(0, 0, 0, 0.5);
     color: white;
     border-radius: 0.3rem;
     text-align: left;
+    padding: 2rem;
 }
 
 .TextBlock > * {
@@ -80,7 +81,39 @@ button {
 .TextBlock button {
     background-color: #EFF7FF;
     color: #4D8CC0;
+    margin-bottom: 2rem;
 }
 
+.TextBlock h1 {
+    padding-top: 2rem;
+}
+
+.HomepageBottom {
+    text-align: center;
+}
+
+.HomepageBottom * {
+    margin-left: 1rem;
+}
+
+
 @media screen and (max-width: 970px) {
+    .TextBlock {
+        margin: auto;
+        position: static;
+        padding: 0;
+        max-width: 90%;
+    }
+    .TextBlockWrapper {
+        background-image: url('../Resources/shutterstock_1302552622.jpg');
+        background-size:cover;
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+        padding: 1rem;
+        margin: 0;
+        margin-top: 2rem;
+    }
+    .PictureOfGirl img {
+        display: none;
+    }
 }
