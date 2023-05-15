@@ -14,6 +14,7 @@ const validationSchema = Yup.object({
     phoneNumbers: Yup.array().of(Yup.string()
         .matches(/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/, 'Invalid Phone Number')),
     message: Yup.string()
+        .max(500, "Message too long")
         .required('Required'),
     address1: Yup.string(),
     address2: Yup.string(),

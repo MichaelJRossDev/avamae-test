@@ -46,6 +46,7 @@ Form * {
 
 Form button {
     margin-top: 1rem;
+    width: 30.5rem;
 }
 
 input {
