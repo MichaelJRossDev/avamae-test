@@ -42,7 +42,9 @@ Navbar {
   border-top: solid 1px lightgray;
   color: lightgray;
   background-color: white;
-  height: 80vh;
+  height: 10vh;
+  position: relative;
+  top: 4rem;
 }
 
 @media screen and (max-width: 550px) {
