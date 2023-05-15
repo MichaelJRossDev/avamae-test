@@ -19,7 +19,8 @@ const validationSchema = Yup.object({
     address2: Yup.string(),
     city: Yup.string(),
     state: Yup.string(),
-    postcode: Yup.string(),
+    postcode: Yup.string()
+        .matches(/([Gg][Ii][Rr] 0[Aa]{2})|((([A-Za-z][0-9]{1,2})|(([A-Za-z][A-Ha-hJ-Yj-y][0-9]{1,2})|(([A-Za-z][0-9][A-Za-z])|([A-Za-z][A-Ha-hJ-Yj-y][0-9][A-Za-z]?))))\s?[0-9][A-Za-z]{2})/,'Invalid Postcode'),
     country: Yup.string()
 })
 
@@ -29,7 +30,7 @@ function ContactUs() {
     const [postError, setPostError] = useState(false);
 
     const onSubmit = values => {
-        axios.post('https://interview-assessment.api.avamae.co.uk/index.html/api/v1/contact-us/submit', {
+        axios.post('https://interview-assessment.api.avamae.co.uk/api/v1/contact-us/submit', {
             FullName: values.fullName,
             EmailAddress: values.email,
             PhoneNumbers: values.phoneNumbers,
