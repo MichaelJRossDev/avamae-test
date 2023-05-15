@@ -69,18 +69,18 @@ function ContactUs() {
                                     <div>
                                         <label>Full Name </label>
                                         <br/>
-                                        <Field name='fullName'/>
+                                        <Field type='text' name='fullName'/>
                                         <ErrorMessage name='fullName' />
                                         <br/>
                                     </div>
                                     <div>
                                         <label>Email address </label>
                                         <br/>
-                                        <Field name='email'/>
+                                        <Field type='text' name='email'/>
                                         <ErrorMessage name='email' />
-                                        <br/>
                                     </div>
                                 </div>
+                                <br/>
                                 <FieldArray name='phoneNumbers'>
                                     {
                                         (fieldArrayProps) => {
@@ -94,13 +94,13 @@ function ContactUs() {
                                                         <>
                                                             <label>{`Phone number ${'0' + (index + 1)} - optional`}</label>
                                                             <br/>
-                                                            <Field name={`phoneNumbers[${index}]`}/>
+                                                            <Field type='text' className="PhoneField" name={`phoneNumbers[${index}]`}/>
                                                             <ErrorMessage name={`phoneNumbers[${index}]`} />
                                                             <br/>
                                                         </>
                                                     ))
                                                     }
-                                                    <button type="button" onClick={() => push('')}>Add new phone number</button>
+                                                    <button className="NewNumberButton" type="button" onClick={() => push('')}><strong>Add new phone number</strong></button>
                                                     <br/>
                                                 </>
                                             )
@@ -110,40 +110,42 @@ function ContactUs() {
                                 <br/>
                                 <label>Message </label>
                                 <br/>
-                                <Field name='message'/>
+                                <Field className='MessageField' type='text' name='message'/>
                                 <ErrorMessage name='message' />
                                 <br/>
                                 <input type="checkbox" onChange={toggleAddress} />
                                 <label>Add address details</label>
-                                <div className={showAddress ? "" : "hidden"}>
+                                <div className={showAddress ? "AddressInfo" : "hidden"}>
                                     <label>Address line 1 </label>
                                     <br/>
-                                    <Field name='address1'/>
-                                    <ErrorMessage name='address1'/>
-                                    <br/>
-                                    <label>Address line 2 </label>
-                                    <br/>
-                                    <Field name='address2'/>
-                                    <ErrorMessage name='address2'/>
+                                    <div className="Address1And2">
+                                        <Field type='text' name='address1'/>
+                                        <ErrorMessage name='address1'/>
+                                        <br/>
+                                        <label>Address line 2 </label>
+                                        <br/>
+                                        <Field type='text' name='address2'/>
+                                        <ErrorMessage name='address2'/>
+                                    </div>
                                     <br/>
                                     <label>City/Town </label>
                                     <br/>
-                                    <Field name='city'/>
+                                    <Field type='text' name='city'/>
                                     <ErrorMessage name='city'/>
                                     <br/>
                                     <label>State/County </label>
                                     <br/>
-                                    <Field name='state'/>
+                                    <Field type='text' name='state'/>
                                     <ErrorMessage name='state'/>
                                     <br/>
                                     <label>Postcode </label>
                                     <br/>
-                                    <Field name='postcode'/>
+                                    <Field type='text' name='postcode'/>
                                     <ErrorMessage name='postcode'/>
                                     <br/>
                                     <label>Country </label>
                                     <br/>
-                                    <Field name='country'/>
+                                    <Field type='text' name='country'/>
                                     <ErrorMessage name='country'/>
                                 </div>
                                 <br/>

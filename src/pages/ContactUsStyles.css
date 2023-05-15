@@ -9,7 +9,7 @@
     position: fixed;
     object-fit: cover;
     right: -10%;
-    top: 8%;
+    top: 0%;
     height: 100%;
     width: 35%;
 }
@@ -17,6 +17,27 @@
 Form {
     margin-left: 2rem;
     padding-left: calc((100vw - 1000px) / 2);
+}
+
+input[type=text] {
+    height: 2rem;
+    border-radius: 5px;
+    border-style: 1px solid #EAEBEB;
+    margin-right: 1rem;
+}
+
+.MessageField {
+    width: 30rem;
+}
+
+.PhoneField {
+    width: 30rem;
+}
+
+.NewNumberButton {
+    width: 30.5rem;
+    background-color: #EFF7FF;
+    color: #4185BD;
 }
 
 Form * {
@@ -29,6 +50,14 @@ Form button {
 
 input {
     background-color: #F8F9FC;
+}
+
+.NameAndEmail > * {
+    width: 18.5rem;
+}
+
+.Address1And2 > * {
+    width: 18.5rem;
 }
 
 .hidden {
@@ -55,6 +84,34 @@ input {
     margin-left: 2rem;
     padding: 0;
 }
+
+.NameAndEmail {
+    white-space: nowrap;
+    display: inline-block;
+}
+
+.Address1And2 {
+    white-space: nowrap;
+    display: inline-block;
+}
+
+.NameAndEmail > * {
+    overflow: hidden;
+    white-space: nowrap;
+    display: inline-block;
+}
+
+.Address1And2 > * {
+    overflow: hidden;
+    white-space: nowrap;
+    display: inline-block;
+    width: 30rem;
+}
+
+.AddressInfo > * {
+    width: 30rem;
+}
+
 
 @media screen and (max-width: 550px) {
     .NameAndEmail {
